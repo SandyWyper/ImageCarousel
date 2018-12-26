@@ -9,50 +9,50 @@
 
 <body>
     <div class="wrapper">
-        <div class="slides fade">
+        <div class="slides first-slide" id="pictures">
             <div class="slide-count">1 / 7</div>
             <img src="images/dog1.png" alt="wee ald dug" style="width:100%">
             <div class="text">Jerry Flea Lewis</div>
         </div>
-        <div class="slides fade">
-            <div class="slide-count">2 / 7</div>
+        <div class="slides" id="pictures">
+            <div class="slide-count" >2 / 7</div>
             <img src="images/dog2.jpg" alt="licky dug" style="width:100%">
-            <div class="text">L.L Drool J</div>
+            <div class="text">LL Drool J</div>
         </div>
-        <div class="slides fade">
+        <div class="slides" id="pictures">
             <div class="slide-count">3 / 7</div>
             <img src="images/dog3.jpg" alt="sausage dug" style="width:100%">
             <div class="text">Britney Ears</div>
         </div>
-        <div class="slides fade">
+        <div class="slides" id="pictures">
             <div class="slide-count">4 / 7</div>
             <img src="images/dog4.jpg" alt="puppy dugs" style="width:100%">
             <div class="text">Paw Simon & Bark Garfunkel</div>
         </div>
-        <div class="slides fade">
+        <div class="slides" id="pictures"">
             <div class="slide-count">5 / 7</div>
             <img src="images/dog5.jpg" alt="puggy dug" style="width:100%">
             <div class="text">Jude Paw</div>
         </div>
-        <div class="slides fade">
+        <div class="slides" id="pictures"">
             <div class="slide-count">6 / 7</div>
             <img src="images/dog6.jpg" alt="glaket dug" style="width:100%">
             <div class="text">Mariah Hairy</div>
         </div>
-        <div class="slides fade">
+        <div class="slides" id="pictures">
             <div class="slide-count">7 / 7</div>
             <img src="images/dog7.jpg" alt="dug in boots" style="width:100%">
             <div class="text">Sarah Jessica Barker</div>
         </div>
         <!-- Nav Buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <a class="prev" onclick="minusSlides()">&#10094;</a>
+        <a class="next" onclick="plusSlides()">&#10095;</a>
     </div>
     <!--wrapper-->
     <br>
     <!-- Nav dots -->
         <div style="text-align:center">
-    	<span class="dot" onclick="currentSlide(1)"></span>
+    	<span class="dot active" onclick="currentSlide(1)"></span>
     	<span class="dot" onclick="currentSlide(2)"></span>
     	<span class="dot" onclick="currentSlide(3)"></span>
     	<span class="dot" onclick="currentSlide(4)"></span>
