@@ -23,28 +23,34 @@
 
 .current-slide {
     position: relative;
+    overflow: hidden;
     display: block;
     left: 0;
     top: 0;
     width: 100%;
     z-index: 2;
     animation-name: trans;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
     -webkit-animation-name: trans;
-    -webkit-animation-duration: 1.5s;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: ease-in;
 }
 
 .current-slide-left {
     position: relative;
+    overflow:hidden;
     display: block;
     left: 0;
     top: 0;
     width: 100%;
     z-index: 2;
     animation-name: lefty;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
     -webkit-animation-name: lefty;
-    -webkit-animation-duration: 1.5s;
+    -webkit-animation-duration: 0.5s;
+  	-webkit-animation-timing-function: ease-in;
 }
 
 .previous-slide {
@@ -54,6 +60,27 @@
     top: 0;
     z-index: 0;
     width: 100%;
+    animation-name: prev;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+    -webkit-animation-name: prev;
+    -webkit-animation-duration: 0.5s;
+-webkit-animation-timing-function: ease-in;
+}
+
+.previous-slide-left {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    width: 100%;
+    animation-name: prev-lefty;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+    -webkit-animation-name: prev-lefty;
+    -webkit-animation-duration: 0.5s;
+-webkit-animation-timing-function: ease-in;
 }
 
 .first-slide {
@@ -139,35 +166,10 @@
 }
 
 
-@-webkit-keyframes trans {
-    from {
-        z-index: 1;
-        transform: translateX(-100%);
-    }
-
-    to {
-        z-index: 2;
-        transform: translateX(0%);
-    }
-}
-
-@keyframes trans {
-    from {
-        z-index: 1;
-        transform: translateX(-100%);
-    }
-
-    to {
-        z-index: 2;
-        transform: translateX(0%);
-    }
-}
-
-
 @-webkit-keyframes lefty {
     from {
         z-index: 1;
-        transform: translateX(100%);
+        transform: translateX(-100%);
     }
 
     to {
@@ -179,11 +181,88 @@
 @keyframes lefty {
     from {
         z-index: 1;
+        transform: translateX(-100%);
+    }
+
+    to {
+        z-index: 2;
+        transform: translateX(0%);
+    }
+}
+
+
+@-webkit-keyframes trans {
+    from {
+        z-index: 1;
         transform: translateX(100%);
     }
 
     to {
         z-index: 2;
         transform: translateX(0%);
+    }
+}
+
+@keyframes trans {
+    from {
+        z-index: 1;
+        transform: translateX(100%);
+    }
+
+    to {
+        z-index: 2;
+        transform: translateX(0%);
+    }
+}
+
+
+
+@-webkit-keyframes prev-lefty {
+    from {
+        z-index: 2;
+        transform: translateX(0%);
+    }
+
+    to {
+        z-index: 1;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes prev-lefty {
+    from {
+        z-index: 2;
+        transform: translateX(0%);
+    }
+
+    to {
+        z-index: 1;
+        transform: translateX(100%);
+    }
+}
+
+
+
+@-webkit-keyframes prev {
+    from {
+        z-index: 2;
+        transform: translateX(0%);
+    }
+
+    to {
+        z-index: 1;
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes prev {
+    from {
+        z-index: 2;
+        transform: translateX(0%);
+    }
+
+    to {
+        z-index: 1;
+        transform: translateX(-100%);
     }
 }

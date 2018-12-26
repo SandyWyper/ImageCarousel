@@ -69,9 +69,9 @@ function showPrevSlide(n) {
     if (n < 1) { slideIndex = slides.length }
     for (let x = 0; x < slides.length; x++) {
         slides[x].className = slides[x].className.replace("previous-slide", "");
-        slides[x].className = slides[x].className.replace("first-slide", "previous-slide");
-        slides[x].className = slides[x].className.replace("current-slide-left", "previous-slide");
-        slides[x].className = slides[x].className.replace("current-slide", "previous-slide");
+        slides[x].className = slides[x].className.replace("first-slide", "previous-slide-left");
+        slides[x].className = slides[x].className.replace("current-slide-left", "previous-slide-left");
+        slides[x].className = slides[x].className.replace("current-slide", "previous-slide-left");
     }
     for (let i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace("active", "");
@@ -88,6 +88,7 @@ function currentSlide(n) {
 
 //listens for keyboard presses and take appropriate action
 document.body.onkeyup = function(e) {
+	// if the space bar or F8 is pressed then pause or start the slide show
     if (e.keyCode == 32 && playing === true ||
         e.keyCode == 119 && playing === true) {
         clearTimeout(autoPlay);
@@ -96,9 +97,16 @@ document.body.onkeyup = function(e) {
         e.keyCode == 119 && playing === false) {
         playSlides();
         playing = true;
+        // if an arrow key is pressed then stop the slideshow and move to relevent slide.
     } else if (e.keyCode == 39) {
+        if (playing === true){
+        	clearTimeout(autoPlay);
+        }
         plusSlides();
     } else if (e.keyCode == 37) {
+          if (playing === true){
+        	clearTimeout(autoPlay);
+        }
         minusSlides();
     }
 }
