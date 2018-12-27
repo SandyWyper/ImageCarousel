@@ -11,26 +11,24 @@ const dots = document.getElementsByClassName('dot');
 const pause = document.getElementById("pause");
 pause.addEventListener("click", playOrPause);
 
-//wait a little before playing slideshow
-// setTimeout(playSlides, 4500);
 
 // decide whether to play or pause
-function playOrPause(){
-	if(playing){
-		playing = false;
-		pauseSlides();
-	} else {
-		playing = true;
-		playSlides();
-	}
+function playOrPause() {
+    if (playing) {
+        playing = false;
+        pauseSlides();
+    } else {
+        playing = true;
+        playSlides();
+    }
 
 }
 
 
 // auto play through slides at 3 second intervals
 function playSlides() {
-	// change the play button to a pause button
-	pause.innerHTML = '<i class="far fa-pause-circle"></i>';
+    // change the play button to a pause button
+    pause.innerHTML = '<i class="far fa-pause-circle"></i>';
 
     slideIndex++;
     showSlides(slideIndex);
@@ -39,10 +37,11 @@ function playSlides() {
 }
 
 //pause the slideshow
-function pauseSlides(){
-	pause.innerHTML = '<i class="far fa-play-circle"></i>';
-	        	clearTimeout(autoPlay);
-
+function pauseSlides() {
+	// change the pause button to a play button
+    pause.innerHTML = '<i class="far fa-play-circle"></i>';
+    clearTimeout(autoPlay);
+    playing = false;
 }
 
 // display a given slide
@@ -88,7 +87,7 @@ function minusSlides() {
 }
 
 function showPrevSlide(n) {
-   //same as the other function, but in reverse
+    //same as the other function, but in reverse
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
     for (let x = 0; x < slides.length; x++) {
@@ -112,25 +111,23 @@ function currentSlide(n) {
 
 //listens for keyboard presses and take appropriate action
 document.body.onkeyup = function(e) {
-	// if the space bar or F8 is pressed then pause or start the slide show
+    // if the space bar or F8 is pressed then pause or start the slide show
     if (e.keyCode == 32 && playing === true ||
         e.keyCode == 119 && playing === true) {
-        clearTimeout(autoPlay);
-        playing = false;
+        pauseSlides();
     } else if (e.keyCode == 32 && playing === false ||
         e.keyCode == 119 && playing === false) {
         playSlides();
-        playing = true;
         // if an arrow key is pressed then stop the slideshow and move to relevent slide.
     } else if (e.keyCode == 39) {
-        if (playing === true){
-pauseSlides();
+        if (playing === true) {
+            pauseSlides();
         }
         plusSlides();
     } else if (e.keyCode == 37) {
-          if (playing === true){
-pauseSlides();        }
+        if (playing === true) {
+            pauseSlides();
+        }
         minusSlides();
     }
 }
-
