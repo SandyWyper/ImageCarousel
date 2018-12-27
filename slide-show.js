@@ -38,7 +38,7 @@ function playSlides() {
 
 //pause the slideshow
 function pauseSlides() {
-	// change the pause button to a play button
+    // change the pause button to a play button
     pause.innerHTML = '<i class="far fa-play-circle"></i>';
     clearTimeout(autoPlay);
     playing = false;
@@ -77,11 +77,17 @@ function showSlides(n) {
 
 // Next slide function
 function plusSlides() {
+    if (playing === true) {
+        pauseSlides();
+    }
     slideIndex++;
     showSlides(slideIndex);
 }
 
 function minusSlides() {
+    if (playing === true) {
+        pauseSlides();
+    }
     slideIndex--;
     showPrevSlide(slideIndex);
 }
@@ -105,6 +111,9 @@ function showPrevSlide(n) {
 
 // Thumbnail image controls
 function currentSlide(n) {
+	if (playing === true) {
+        pauseSlides();
+    }
     showSlides(slideIndex = n);
 }
 
@@ -120,14 +129,8 @@ document.body.onkeyup = function(e) {
         playSlides();
         // if an arrow key is pressed then stop the slideshow and move to relevent slide.
     } else if (e.keyCode == 39) {
-        if (playing === true) {
-            pauseSlides();
-        }
         plusSlides();
     } else if (e.keyCode == 37) {
-        if (playing === true) {
-            pauseSlides();
-        }
         minusSlides();
     }
 }

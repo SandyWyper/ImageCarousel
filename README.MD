@@ -15,7 +15,7 @@ This is a challenge set by Founders and Coders academy.  This solution fulfills 
 ### Additional features
 
 - ‘Spacebar’ starts and stops the slideshow
-- If arrow keys are used then autoplay is paused
+- If arrow keys, nav arrows or dots are used then autoplay is paused
 - Animation between slides
 - Dot indicators at the bottom to show which slide is being displayed
 - Navigate to slides using the dots
