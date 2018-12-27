@@ -8,17 +8,41 @@ let playing = false;
 // create objects to handle DOM elements
 const slides = document.getElementsByClassName('slides');
 const dots = document.getElementsByClassName('dot');
+const pause = document.getElementById("pause");
+pause.addEventListener("click", playOrPause);
 
 //wait a little before playing slideshow
-setTimeout(playSlides, 4500);
+// setTimeout(playSlides, 4500);
+
+// decide whether to play or pause
+function playOrPause(){
+	if(playing){
+		playing = false;
+		pauseSlides();
+	} else {
+		playing = true;
+		playSlides();
+	}
+
+}
 
 
 // auto play through slides at 3 second intervals
 function playSlides() {
+	// change the play button to a pause button
+	pause.innerHTML = '<i class="far fa-pause-circle"></i>';
+
     slideIndex++;
     showSlides(slideIndex);
     autoPlay = setTimeout(playSlides, 3000);
     playing = true;
+}
+
+//pause the slideshow
+function pauseSlides(){
+	pause.innerHTML = '<i class="far fa-play-circle"></i>';
+	        	clearTimeout(autoPlay);
+
 }
 
 // display a given slide
@@ -100,13 +124,13 @@ document.body.onkeyup = function(e) {
         // if an arrow key is pressed then stop the slideshow and move to relevent slide.
     } else if (e.keyCode == 39) {
         if (playing === true){
-        	clearTimeout(autoPlay);
+pauseSlides();
         }
         plusSlides();
     } else if (e.keyCode == 37) {
           if (playing === true){
-        	clearTimeout(autoPlay);
-        }
+pauseSlides();        }
         minusSlides();
     }
 }
+
